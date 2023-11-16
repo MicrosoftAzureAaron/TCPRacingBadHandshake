@@ -2,7 +2,7 @@ from scapy.all import IP, TCP, send, sniff
 
 # Function to handle incoming SYN packets and send SYN-ACK responses
 def syn_packet_handler(packet):
-    packet.show()
+    #packet.show()
     if packet[IP].src == "10.1.2.4" and packet[TCP].flags == 2:
         # Build the TCP SYN-ACK response
         syn_ack_response = IP(src=packet[IP].dst, dst=packet[IP].src) / TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='SA')
